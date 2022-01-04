@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 export default class Home extends Component {
-    render() {
+
+    render(props) {
         return (
-            <div className="container my-5 text-center">
-               <h1>Home </h1> 
-            </div>
+            <div className="container">
+
+    </div>
         )
     }
 }

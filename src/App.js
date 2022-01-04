@@ -4,10 +4,11 @@ import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import Home from './Pages/Home';
-import About from './Pages/About';
-import Contact from './Pages/Contact';
+import Signup from './Pages/Signup';
+import Signin from './Pages/Signin';
 
 export default class App extends Component {
+
   render() {
     return (
       <>
@@ -15,8 +16,8 @@ export default class App extends Component {
           <Header title="Reac App" />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/about" element={<About />}></Route>
-            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/signin" element={<Signin />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
             <Route path="*" element={
               <div style={{ padding: "1rem" }}>
                 <h1>There's nothing here!</h1>
