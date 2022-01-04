@@ -12,7 +12,7 @@ export default class App extends Component {
     return (
       <>
         <BrowserRouter>
-          <Header />
+          <Header title="Reac App" />
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/about" element={<About />}></Route>
