@@ -7,14 +7,18 @@ export default class Signin extends Component {
       }
 
       validate() {
-          if((this.state.name === '') && (this.state.password === '')){
-           this.setState({nameError: 'Please enter the username.',passwordError:'Please fill the password.'})
-          }else if(this.state.password.length < 5){
-            this.setState({passwordError: 'Password lenght must be greater than 5.'})
+          if(this.state.name === ''){
+           this.setState({nameError: 'Please enter the username.'})
           }else if(!this.state.name.includes('@')){
             this.setState({nameError: 'Please enter the valid email.'})
+          }else if(this.state.password === ''){
+            this.setState({passwordError:'Please fill the password.'})
+          }
+          else if(this.state.password.length < 5){
+            this.setState({passwordError: 'Password lenght must be greater than 5.'})
           }else{
-            alert('Form submit successfully.');
+            this.setState({nameError: '',passwordError:''})
+            alert("Form submit Successfully");
           }
       }
      

@@ -8,14 +8,50 @@ import Signup from './Pages/Signup';
 import Signin from './Pages/Signin';
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result
+          });
+
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        });
+  }
+
 
   render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      console.log(items)
+    }
+
     return (
       <>
         <BrowserRouter>
           <Header title="Reac App" />
           <Routes>
-            <Route path="/" element={<Home />}></Route>
+            <Route path="/" element={<Home item={items}/>}></Route>
             <Route path="/signin" element={<Signin />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="*" element={
@@ -27,6 +63,8 @@ export default class App extends Component {
           </Routes>
           <Footer />
         </BrowserRouter>
+
+
       </>
     )
   }

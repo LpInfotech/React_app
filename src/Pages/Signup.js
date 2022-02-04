@@ -6,10 +6,6 @@ export default class Signup extends Component {
         this.state = {value: ''};     
       }
     
-    //   handleChange(event) {
-    //     this.setState({value: event.target.value});
-    //   }
-
       handleSubmit(event) {
         event.preventDefault();
         let userName = event.target.username.value;
